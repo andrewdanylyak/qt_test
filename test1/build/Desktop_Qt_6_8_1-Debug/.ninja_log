@@ -1,0 +1,13 @@
+# ninja log v5
+12	25	1737816523934063476	CMakeFiles/test1.dir/setupdialog.cpp.o	e379a0c9cb8061ec
+12	2204	1737816526109056609	CMakeFiles/test1.dir/mainwindow.cpp.o	c03291932fd276a8
+610	628	1737814238738935413	CMakeFiles/test1.dir/main.cpp.o	31a91c1daf89370b
+0	108	1737802589271945974	build.ninja	efdef19c8c8ee2c8
+610	928	1737814239038934883	CMakeFiles/test1.dir/test1_autogen/mocs_compilation.cpp.o	4b090218ab8a7461
+1	11	1737816523903063573	/home/msi/Repos/QtProjects/test1/build/Desktop_Qt_6_8_1-Debug/test1_autogen/timestamp	e745dc28c77ae67d
+611	2715	1737814240820931732	CMakeFiles/test1.dir/udpserver.cpp.o	17bf994c73cee90c
+1	11	1737816523903063573	test1_autogen/mocs_compilation.cpp	e745dc28c77ae67d
+2204	2421	1737816526330055912	test1	51ce45c48d7995ab
+1	11	1737816523903063573	/home/msi/Repos/QtProjects/test1/build/Desktop_Qt_6_8_1-Debug/test1_autogen/mocs_compilation.cpp	e745dc28c77ae67d
+1	11	1737816523903063573	test1_autogen/timestamp	e745dc28c77ae67d
+8	794	1737730569886509310	CMakeFiles/test1.dir/socketthread.cpp.o	eec1bbccde495a37
