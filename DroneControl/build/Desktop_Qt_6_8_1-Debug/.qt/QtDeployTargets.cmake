@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_DroneControl_FILE /home/msi/Repos/QtProjects/DroneControl/build/Desktop_Qt_6_8_1-Debug/DroneControl)
+set(__QT_DEPLOY_TARGET_DroneControl_TYPE EXECUTABLE)
