@@ -74,23 +74,28 @@ Parser::Parser()
 Parser::~Parser()
 {
     //mThread.terminate();
-    running = false;
+    //running = false;
     //mThread.wait();
 }
 
-void Parser::start(const UdpServer::Config_t &config)
+void Parser::config(const UdpServer::Config_t &config)
 {
     if (!config.listenAddress.isNull() || !config.sendAddress.isNull()) {
         udpServer.run(config);
         infMessage(tr("Server is listening on address %1 and port %2")
                            .arg(config.listenAddress.toString())
                            .arg(config.listenPort));
-        connect(&mThread, &QThread::started, [=](){sendProtocol();});
-        running = true;
-        mThread.start();
+        //connect(&mThread, &QThread::started, [=](){sendProtocol();});
+        mRunning = true;
+        //mThread.start();
     } else {
         errMessage(tr("Failed to start listening, no valid address/port"));
     }
+}
+
+void Parser::stop()
+{
+    mRunning = false;
 }
 
 void Parser::errMessage(const QString &message)
@@ -117,9 +122,9 @@ void Parser::dataReceived(const QByteArray &data)
     qDebug("Data received");
 }
 
-void Parser::sendProtocol() {
+void Parser::process() {
     uint8_t buffer[128] = { 0 };
-    while (running) {
+    while (mRunning) {
         uint16_t size = 0;
         size = mTxFifo.getSize();
         if (size > 0) {
@@ -132,6 +137,7 @@ void Parser::sendProtocol() {
         mProtocol.parser(&mRxFifo);
         mProtocol.send(&mTxFifo, 100);
     }
+    emit finished();
 }
 
 void Parser::cmdGetStatus()

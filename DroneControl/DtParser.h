@@ -18,12 +18,17 @@ public:
     Parser();
     ~Parser();
 
-    void start(const UdpServer::Config_t &config);
+    void config(const UdpServer::Config_t &config);
     void cmdGetStatus();
 signals:
     void errorMessage(const QString &message);
     void warningMessage(const QString &message);
     void infoMessage(const QString &message);
+    void finished();
+
+public slots:
+    void process();
+    void stop();
 
 private slots:
     void errMessage(const QString &message);
@@ -41,9 +46,9 @@ private:
     Dt::DtFifo mTxFifo;
     Dt::DtProtocol mProtocol;
     QThread mThread;
-    void sendProtocol();
+    //void sendProtocol();
     static void sGetStatus(const uint8_t* pData , size_t size);
-    std::atomic<bool> running = false;
+    std::atomic<bool> mRunning = false;
 };
 
 #endif // DTPARSER_H
